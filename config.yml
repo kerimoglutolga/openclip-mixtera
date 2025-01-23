@@ -1,0 +1,38 @@
+setup:
+  cache_dir: /iopsstor/scratch/cscs/tkerimog/open_clip/openclip-mixtera/cache
+  logs: /iopsstor/scratch/cscs/tkerimog/open_clip/openclip-mixtera/logs
+  log_local: False
+  name: open_clip_exp
+  wandb: True
+  save_frequency: 1
+  wandb_notes: null
+  seed: 0
+training:
+  dataset_type: mixtera
+  train_data: /iopsstor/scratch/cscs/tkerimog/datasets/cc12m-wds/cc12m-train-{0000..2175}.tar
+  train_num_samples: 10968539
+  resume: null # path to a checkpoint to resume training
+  save_most_recent: True
+  delete_previous_checkpoint: True
+  batch_size: 256
+  epochs: 32
+  warmup: 2000
+  workers: 8 # number of dataloader workers
+  model: ViT-B-32
+  local_loss: False
+  gather_with_grad: True
+  precision: amp
+  siglip: False # use SigLip (sigmoid) loss
+  force_quick_gelu: False # force use of QuickGELU activation for non-OpenAI transformer models
+  force_custom_text: False # force use of CustomTextCLIP model (separate text-tower).
+  force_patch_dropout: False # override the patch dropout during training, for fine tuning with no dropout near the end as in the paper
+  force_image_size: null
+  use_bnb_linear: False # replace the network linear layers from the bitsandbytes library. Allows int8 training/inference, etc.
+  grad_checkpointing: False
+  use_bn_sync: False # use synchronized batch normalization
+  ddp_static_graph: False # enable static graph optimization for DDP in PyTorch >= 1.11.
+  opt: adamw
+  lr_scheduler: cosine # [cosine, const]
+  acum_freq: 1 # update the model every acum_freq steps.
+  torchcompile: False # torch.compile() the model, requires pytorch 2.0 or later.
+

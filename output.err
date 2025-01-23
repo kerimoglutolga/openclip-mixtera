@@ -1,0 +1,26 @@
+2025-01-23 22:30:42.061 | INFO     | __main__:main:46 - Starting server, serving from directory /iopsstor/scratch/cscs/tkerimog/open_clip/mixtera_server
+2025-01-23 22:30:42.063 | DEBUG    | mixtera.core.client.mixtera_client:__init__:138 - Initialized current mixture id to -1.
+2025-01-23 22:30:42.098 | INFO     | mixtera.core.datacollection.mixtera_data_collection:_init_database:84 - Initializing database.
+2025-01-23 22:30:42.147 | INFO     | mixtera.core.datacollection.mixtera_data_collection:_init_database:119 - Database initialized.
+2025-01-23 22:30:42.155 | INFO     | mixtera.core.datacollection.mixtera_data_collection:_vacuum:123 - Vacuuming the DuckDB.
+2025-01-23 22:30:42.155 | INFO     | mixtera.core.datacollection.mixtera_data_collection:_vacuum:125 - Vacuumd.
+2025-01-23 22:30:42.156 | DEBUG    | mixtera.core.query.query_cache:__init__:18 - Initializing QueryCache at /iopsstor/scratch/cscs/tkerimog/open_clip/mixtera_server/querycache
+2025-01-23 22:30:42.166 | INFO     | mixtera.network.server.server:_run_async:377 - Serving MixteraServer on ('172.28.13.252', 12345)
+2025-01-23 22:30:59.485 | INFO     | mixtera.core.datacollection.index.parser.parser_collection:add_parser:220 - Registered medata parser GenericMetadataParser with the associated class <class 'mixtera.core.datacollection.index.parser.parser_collection.GenericMetadataParser'>
+2025-01-23 22:30:59.858 | INFO     | mixtera.core.datacollection.mixtera_data_collection:_insert_dataset_into_table:242 - Successfully registered dataset CC12M with id 1.
+2025-01-23 22:30:59.859 | INFO     | mixtera.core.datacollection.datasets.web_dataset:iterate_files:20 - Starting to iterate over samples in folder: /iopsstor/scratch/cscs/tkerimog/datasets/cc12m-wds
+2025-01-23 22:30:59.865 | INFO     | mixtera.core.datacollection.mixtera_data_collection:register_dataset:159 - Gathered 2176 files, ready to insert
+2025-01-23 22:30:59.867 | INFO     | mixtera.core.datacollection.mixtera_data_collection:register_dataset:164 - Columns added to samples table based on parser schema.
+2025-01-23 22:30:59.903 | INFO     | mixtera.core.datacollection.mixtera_data_collection:_insert_files_into_table:253 - Inserting 2176 files for dataset id = 1
+2025-01-23 22:30:59.933 | INFO     | mixtera.core.datacollection.mixtera_data_collection:register_dataset:179 - Prepared tasks for reading
+/usr/lib/python3.10/multiprocessing/popen_fork.py:66: RuntimeWarning: Using fork() can cause Polars to deadlock in the child process.
+In addition, using fork() with Python in general is a recipe for mysterious
+deadlocks and crashes.
+
+The most likely reason you are seeing this error is because you are using the
+multiprocessing module on Linux, which uses fork() by default. This will be
+fixed in Python 3.14. Until then, you want to use the "spawn" context instead.
+
+See https://docs.pola.rs/user-guide/misc/multiprocessing/ for details.
+
+  self.pid = os.fork()
